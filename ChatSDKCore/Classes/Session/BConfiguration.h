@@ -156,6 +156,7 @@ typedef enum {
 @property (nonatomic, readwrite) UIFont * messageTextFont;
 @property (nonatomic, readwrite) NSString * messageTextColorMe;
 @property (nonatomic, readwrite) NSString * messageTextColorReply;
+@property (nonatomic, readwrite) UIColor * messageLinkColor;
 
 @property (nonatomic, readwrite) UIFont * messageTimeFont;
 @property (nonatomic, readwrite) UIFont * messageNameFont;

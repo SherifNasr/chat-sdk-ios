@@ -40,6 +40,9 @@
         UIColor * linkColor = [BChatSDK.ui colorForName:bColorMessageLink];
         if(linkColor) {
             textView.linkTextAttributes = @{NSForegroundColorAttributeName: linkColor};
+        }else {
+            textView.linkTextAttributes = @{NSForegroundColorAttributeName: UIColor.blueColor,
+                                            NSUnderlineStyleAttributeName: [NSNumber numberWithInt:NSUnderlineStyleSingle]};
         }
         
 //        textView.contentInset = UIEdgeInsetsMake(-9.0, -5.0, 0.0, 0.0);
@@ -54,6 +57,13 @@
     [super setMessage:message withColorWeight:colorWeight];
     
     textView.text = message.text;
+    
+    if (BChatSDK.config.messageLinkColor) {
+        textView.linkTextAttributes = @{
+            NSForegroundColorAttributeName: BChatSDK.config.messageLinkColor,
+            NSUnderlineStyleAttributeName: [NSNumber numberWithInt:NSUnderlineStyleSingle]
+        };
+    }
     
     if(BChatSDK.config.messageTextColorMe && message.userModel.isMe) {
         textView.textColor = [BCoreUtilities colorWithHexString:BChatSDK.config.messageTextColorMe];
