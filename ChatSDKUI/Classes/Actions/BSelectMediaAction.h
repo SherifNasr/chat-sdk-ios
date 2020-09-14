@@ -22,6 +22,7 @@
 @property (nonatomic, readwrite) UIImage * coverImage;
 @property (nonatomic, readwrite) UIImage * photo;
 @property (nonatomic, readwrite) NSData * videoData;
+@property (nonatomic, readwrite) NSData * file;
 
 -(instancetype) initWithType: (bPictureType) type viewController: (UIViewController *) controller;
 

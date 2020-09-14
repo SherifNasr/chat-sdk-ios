@@ -167,6 +167,7 @@ typedef enum {
 
 @property (nonatomic, readwrite) BOOL locationMessagesEnabled;
 @property (nonatomic, readwrite) BOOL imageMessagesEnabled;
+@property (nonatomic, readwrite) BOOL fileMessagesEnabled;
 
 @property (nonatomic, readwrite) int audioMessageMaxLengthSeconds;
 

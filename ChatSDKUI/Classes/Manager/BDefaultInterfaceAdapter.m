@@ -31,11 +31,13 @@
         _messageCellTypes = [NSMutableDictionary new];
         _providers = [NSMutableDictionary new];
         
+                
         [self registerMessageWithCellClass:BTextMessageCell.class messageType:@(bMessageTypeText)];
         [self registerMessageWithCellClass:BImageMessageCell.class messageType:@(bMessageTypeImage)];
         [self registerMessageWithCellClass:BLocationCell.class messageType:@(bMessageTypeLocation)];
         [self registerMessageWithCellClass:BSystemMessageCell.class messageType:@(bMessageTypeSystem)];
-        
+        [self registerMessageWithCellClass:BFileMessageCell.class messageType:@(bMessageTypeFile)];
+
         // Setup default providers
         [self setProvider:[BMessageSectionDateProvider new] forName:bMessageSectionDateProvider];
     }
@@ -211,6 +213,7 @@
     BOOL videoEnabled = BChatSDK.videoMessage != Nil;
     BOOL imageEnabled = BChatSDK.imageMessage != Nil && BChatSDK.config.imageMessagesEnabled;
     BOOL locationEnabled = BChatSDK.locationMessage != Nil && BChatSDK.config.locationMessagesEnabled;
+    BOOL fileEnabled = BChatSDK.fileMessage != Nil && BChatSDK.config.fileMessagesEnabled;
     
     if (imageEnabled && videoEnabled) {
         [options addObject:[[BMediaChatOption alloc] initWithType:bPictureTypeCameraVideo]];
@@ -227,6 +230,9 @@
     }
     if (locationEnabled) {
         [options addObject:[[BLocationChatOption alloc] init]];
+    }
+    if (fileEnabled) {
+        [options addObject:[[BFileChatOption alloc] init]];
     }
     
     for(BChatOption * option in _additionalChatOptions) {

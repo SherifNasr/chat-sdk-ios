@@ -33,6 +33,7 @@
 @synthesize firebaseShouldConfigureAutomatically;
 @synthesize locationMessagesEnabled;
 @synthesize imageMessagesEnabled;
+@synthesize fileMessagesEnabled;
 @synthesize googleMapsApiKey;
 @synthesize clearDataWhenRootPathChanges;
 @synthesize databaseVersion;
@@ -151,6 +152,7 @@
         
         locationMessagesEnabled = YES;
         imageMessagesEnabled = YES;
+        fileMessagesEnabled = YES;
         termsAndConditionsEnabled = YES;
         
         showPublicThreadsUnreadMessageBadge = YES;

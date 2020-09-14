@@ -98,6 +98,7 @@
 #import <ChatSDK/BBaseContactHandler.h>
 #import <ChatSDK/BBaseImageMessageHandler.h>
 #import <ChatSDK/BBaseLocationMessageHandler.h>
+#import <ChatSDK/BBaseFileMessageHandler.h>
 #import <ChatSDK/BAudioManager.h>
 #import <ChatSDK/BInterfaceManager.h>
 

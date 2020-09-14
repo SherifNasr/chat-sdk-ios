@@ -163,6 +163,7 @@
 
 "bLocation" = "Location";
 "bCamera" = "Camera";
+"bFile" = "Choose File";
 "bChoosePhoto" = "Choose Photo";
 "bChooseVideo" = "Choose Video";
 "bSticker" = "Sticker";

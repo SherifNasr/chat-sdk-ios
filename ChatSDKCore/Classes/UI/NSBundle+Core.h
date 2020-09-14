@@ -151,6 +151,7 @@
 
 #define bTyping @"bTyping"
 #define bCamera @"bCamera"
+#define bFile @"bFile"
 #define bPhoto @"bPhoto"
 #define bChoosePhoto @"bChoosePhoto"
 #define bChooseVideo @"bChooseVideo"

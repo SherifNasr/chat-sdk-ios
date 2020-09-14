@@ -214,7 +214,7 @@
 
 // When the button is held we start recording
 - (void)sendButtonHeld {
-    if (_micButtonEnabled) {
+//    if (_micButtonEnabled) {
         [[BAudioManager sharedManager] startRecording];
         _recordingToastTimer = [NSTimer scheduledTimerWithTimeInterval:0.5
                                                                 target:self
@@ -223,7 +223,7 @@
                                                                repeats:YES];
         _recordingStart = [NSDate new];
         [_placeholderLabel setText:[NSBundle t: bSlideToCancel]];
-    }
+//    }
 }
 
 -(void) sendAudioMessage {

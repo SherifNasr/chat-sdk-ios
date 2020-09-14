@@ -155,6 +155,7 @@
 
 "bLocation" = "Ubicacion";
 "bCamera" = "Camara";
+"bFile" = "Seleccione archivar";
 "bChoosePhoto" = "Seleccione foto";
 "bChooseVideo" = "Seleccione un video";
 "bSticker" = "Pegatina";

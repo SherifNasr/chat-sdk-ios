@@ -421,7 +421,6 @@
     // We want to check if the message is a premium type but without the libraries added
     // Without this check the app crashes if the user doesn't have premium cell types
     if ((!BChatSDK.stickerMessage && message.type.integerValue == bMessageTypeSticker) ||
-        (!BChatSDK.fileMessage && message.type.integerValue == bMessageTypeFile) ||
         (!BChatSDK.videoMessage && message.type.integerValue == bMessageTypeVideo) ||
         (!BChatSDK.fileMessage && message.type.integerValue == bMessageTypeFile) ||
         (!BChatSDK.audioMessage && message.type.integerValue == bMessageTypeAudio)) {

@@ -53,7 +53,9 @@
             self.url = url;
             self.name = [response suggestedFilename];
             self.mimeType = [response MIMEType];
-            [_promise resolveWithResult:nil];
+            [_promise resolveWithResult:@{bMessageFileURL : self.url,
+                                          bMessageText : self.name,
+                                          bMessageMimeType : self.mimeType}];
         } else {
             [_promise rejectWithReason:nil];
         }

@@ -72,10 +72,12 @@
 #import <ChatSDK/BLocationCell.h>
 #import <ChatSDK/BUserCell.h>
 #import <ChatSDK/BSystemMessageCell.h>
+#import <ChatSDK/BFileMessageCell.h>
 
 #import <ChatSDK/BChatOption.h>
 #import <ChatSDK/BMediaChatOption.h>
 #import <ChatSDK/BLocationChatOption.h>
+#import <ChatSDK/BFileChatOption.h>
 #import <ChatSDK/BChatOptionDelegate.h>
 #import <ChatSDK/PChatOptionsHandler.h>
 #import <ChatSDK/BChatOptionsActionSheet.h>

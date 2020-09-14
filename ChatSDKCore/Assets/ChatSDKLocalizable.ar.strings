@@ -155,6 +155,7 @@
 
 "bLocation" = "موقع";
 "bCamera" = "كاميرا";
+"bFile" = "اختر ملف";
 "bChoosePhoto" = "اختر الصورة";
 "bChooseVideo" = "اختر فيديو";
 "bSticker" = "لاصقة";
