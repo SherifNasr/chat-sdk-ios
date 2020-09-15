@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "BMessageCell.h"
 
-@interface BFileMessageCell : BMessageCell<BMessageDelegate>
+@interface BFileMessageCell : BMessageCell
 
 @property (nonatomic, readwrite) UIImageView * imageView;
 @property (nonatomic, readwrite) UILabel * label;

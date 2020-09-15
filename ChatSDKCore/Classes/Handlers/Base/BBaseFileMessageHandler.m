@@ -36,7 +36,7 @@
     return [BChatSDK.upload uploadFile:fileData  withName:name mimeType:mimeType].thenOnMain(^id(NSDictionary * info) {
  
         [message setMeta:@{bMessageFileURL: info[bFilePath] ? info[bFilePath] : @"",
-                           bMessageText: info[bMessageText] ? info[bMessageText] : @"",
+                           bMessageText: info[bFileName] ? info[bFileName] : @"",
                            bMessageMimeType: info[bMessageMimeType] ? info[bMessageMimeType] : @""}];
         
         [BHookNotification notificationMessageDidUpload: message];
@@ -50,6 +50,11 @@
 - (Class)cellClass {
     return BFileMessageCell.class;
 }
+
+- (NSString *)bundle {
+    return @"";  //todo: will be changed
+}
+
 
 
 

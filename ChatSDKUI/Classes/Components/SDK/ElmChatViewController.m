@@ -581,23 +581,26 @@
             [cell.imageView setImage:[NSBundle imageNamed:@"file.png" bundle:BChatSDK.fileMessage.bundle]];
         }
         
-        [cell showActivityIndicator];
+//        [cell showActivityIndicator];
         
         NSURL * url = [NSURL URLWithString:meta[bMessageFileURL]];
-        [BFileCache cacheFileFromURL:url withFileName:meta[bMessageText] andCacheName:cell.message.entityID]
-        .thenOnMain(^id(NSURL * cacheUrl) {
-            NSLog(@"Cache URL: %@", [cacheUrl absoluteString]);
-            [cell setMessage:cell.message];
-            
-            [cell hideActivityIndicator];
-            
-            [self presentDocumentInteractionViewControllerWithURL:cacheUrl andName:nil];
-            return nil;
-        }, ^id(NSError *error) {
-            NSLog(@"Error: %@", error.localizedDescription);
-            [cell hideActivityIndicator];
-            return nil;
-        });
+        
+        [[UIApplication sharedApplication] openURL:url];
+        
+//        [BFileCache cacheFileFromURL:url withFileName:meta[bMessageText] andCacheName:cell.message.entityID]
+//        .thenOnMain(^id(NSURL * cacheUrl) {
+//            NSLog(@"Cache URL: %@", [cacheUrl absoluteString]);
+//            [cell setMessage:cell.message];
+//
+//            [cell hideActivityIndicator];
+//
+//            [self presentDocumentInteractionViewControllerWithURL:cacheUrl andName:nil];
+//            return nil;
+//        }, ^id(NSError *error) {
+//            NSLog(@"Error: %@", error.localizedDescription);
+//            [cell hideActivityIndicator];
+//            return nil;
+//        });
     }
 }
 
