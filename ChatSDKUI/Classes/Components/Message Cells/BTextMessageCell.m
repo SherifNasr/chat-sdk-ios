@@ -11,6 +11,7 @@
 #import <ChatSDK/UI.h>
 #import <ChatSDK/Core.h>
 #import <ChatSDK/PElmMessage.h>
+#import <ChatSDK/ChatSDK-Swift.h>
 
 @implementation BTextMessageCell
 
@@ -26,7 +27,7 @@
         textView.backgroundColor = [UIColor clearColor];
         textView.dataDetectorTypes = UIDataDetectorTypeAll;
         textView.editable = NO;
-        textView.userInteractionEnabled = YES;
+        textView.userInteractionEnabled = NO;
         textView.scrollEnabled = YES;
         // Get rid of padding and margin
         textView.textContainer.lineFragmentPadding = 0;
@@ -40,9 +41,6 @@
         UIColor * linkColor = [BChatSDK.ui colorForName:bColorMessageLink];
         if(linkColor) {
             textView.linkTextAttributes = @{NSForegroundColorAttributeName: linkColor};
-        }else {
-            textView.linkTextAttributes = @{NSForegroundColorAttributeName: UIColor.blueColor,
-                                            NSUnderlineStyleAttributeName: [NSNumber numberWithInt:NSUnderlineStyleSingle]};
         }
         
 //        textView.contentInset = UIEdgeInsetsMake(-9.0, -5.0, 0.0, 0.0);
@@ -53,28 +51,17 @@
     return self;
 }
 
--(void) setMessage: (id<PElmMessage>) message withColorWeight:(float)colorWeight {
-    [super setMessage:message withColorWeight:colorWeight];
+-(void) setMessage: (id<PElmMessage>) message isSelected: (BOOL) selected {
+    [super setMessage:message isSelected:selected];
     
     textView.text = message.text;
     
-    if (BChatSDK.config.messageLinkColor) {
-        textView.linkTextAttributes = @{
-            NSForegroundColorAttributeName: BChatSDK.config.messageLinkColor,
-            NSUnderlineStyleAttributeName: [NSNumber numberWithInt:NSUnderlineStyleSingle]
-        };
+    if (message.userModel.isMe) {
+        textView.textColor = [Colors getWithName:Colors.outcomingDefaultTextColor];
+    } else {
+        textView.textColor = [Colors getWithName:Colors.incomingDefaultTextColor];
     }
     
-    if(BChatSDK.config.messageTextColorMe && message.userModel.isMe) {
-        textView.textColor = [BCoreUtilities colorWithHexString:BChatSDK.config.messageTextColorMe];
-    }
-    else if(BChatSDK.config.messageTextColorReply && !message.userModel.isMe) {
-        textView.textColor = [BCoreUtilities colorWithHexString:BChatSDK.config.messageTextColorReply];
-    }
-    else
-    {
-        textView.textColor = [BCoreUtilities colorWithHexString:bDefaultTextColor];
-    }
 }
 
 #pragma Cell sizing static methods
